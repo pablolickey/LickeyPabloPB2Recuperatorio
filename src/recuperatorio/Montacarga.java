@@ -46,8 +46,14 @@ public class Montacarga {
 		return cargasCompletadas;
 	}
 
-	public void setCargasCompletadas(ArrayList<Carga> cargasCompletadas) {
-		this.cargasCompletadas = cargasCompletadas;
+
+	public void descargarCarga(Carga cargaActual) {
+		this.cargasCompletadas.add(cargaActual);
+		this.cargaActual=null;
+	}
+
+	public Integer getCantidadDeCargasCompletadas() {
+		return this.cargasCompletadas.size();
 	}
 	
 	

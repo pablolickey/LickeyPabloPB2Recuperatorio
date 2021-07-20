@@ -34,4 +34,18 @@ public class TestCases {
 		
 		assertNotNull(montacarga.getCargaActual());
 	}
+	
+	@Test(expected = NoExisteCarga.class)
+	public void descargarCarga() throws NoExisteCarga {
+		Double pesoMaximo=1500.0;
+		Montacarga montacarga=new Montacarga(pesoMaximo);
+		
+		Double pesoDeCarga=800.0;
+		montacarga.cargarCarga(pesoDeCarga);
+		
+		montacarga.descargarCarga(montacarga.getCargaActual());
+		
+		assertNull(montacarga.getCargaActual());
+		assertEquals((Integer)1,montacarga.getCantidadDeCargasCompletadas());
+	}
 }
