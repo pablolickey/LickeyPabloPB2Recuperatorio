@@ -14,6 +14,16 @@ public class TestCases {
 		assertNotNull(montacarga);
 	}
 	
+	@Test
+	public void crearUnaCarga() {
+		Integer cargaId=1;
+		Double pesoDeCarga=800.0;
+		Carga carga= new Carga(cargaId,pesoDeCarga);
+		
+		assertEquals(800.0,carga.getPeso(),0.0);
+		
+	}
+	
 	
 	@Test 
 	public void cargarYobtenerCargaActual() throws NoExisteCarga {
