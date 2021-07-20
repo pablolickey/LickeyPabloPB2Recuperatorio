@@ -26,7 +26,7 @@ public class TestCases {
 	
 	
 	@Test 
-	public void cargarYobtenerCargaActual() throws NoExisteCarga {
+	public void cargarYobtenerCargaActual() throws NoExisteCarga, PesoExcesivo {
 		Double pesoMaximo=1500.0;
 		Montacarga montacarga=new Montacarga(pesoMaximo);
 		
@@ -34,6 +34,18 @@ public class TestCases {
 		montacarga.cargarCarga(pesoDeCarga);
 		
 		assertEquals(800.0,montacarga.getCargaActual().getPeso(),0.0);
+		
+	}
+	
+	@Test (expected = PesoExcesivo.class)
+	public void siLaCargaSuperaAlPesoMaximoLanzarExcepcion() throws NoExisteCarga, PesoExcesivo {
+		Double pesoMaximo=1500.0;
+		Montacarga montacarga=new Montacarga(pesoMaximo);
+		
+		Double pesoDeCarga=1600.0;
+		montacarga.cargarCarga(pesoDeCarga);
+		
+		
 		
 	}
 	
@@ -46,7 +58,7 @@ public class TestCases {
 	}
 	
 	@Test(expected = NoExisteCarga.class)
-	public void descargarCarga() throws NoExisteCarga {
+	public void descargarCarga() throws NoExisteCarga, PesoExcesivo {
 		Double pesoMaximo=1500.0;
 		Montacarga montacarga=new Montacarga(pesoMaximo);
 		
@@ -60,7 +72,7 @@ public class TestCases {
 	}
 	
 	@Test
-	public void obtenerPromedioDeCargas() throws NoExisteCarga {
+	public void obtenerPromedioDeCargas() throws NoExisteCarga, PesoExcesivo {
 		Double pesoMaximo=1500.0;
 		Montacarga montacarga=new Montacarga(pesoMaximo);
 		

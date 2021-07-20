@@ -12,18 +12,15 @@ public class Montacarga {
 		this.pesoMaximo=pesoMaximo;
 	}
 
-	public void cargarCarga(Double pesoDeCarga) {
+	public void cargarCarga(Double pesoDeCarga) throws PesoExcesivo {
 		this.cargaId++;
-		this.cargaActual=new Carga(this.cargaId,pesoDeCarga);
+		if(pesoDeCarga<=this.pesoMaximo) {
+			this.cargaActual=new Carga(this.cargaId,pesoDeCarga);			
+		}else {
+			throw new PesoExcesivo();
+		}
 	}
 
-	public Double getPesoMaximo() {
-		return pesoMaximo;
-	}
-
-	public void setPesoMaximo(Double pesoMaximo) {
-		this.pesoMaximo = pesoMaximo;
-	}
 
 	public Carga getCargaActual() throws NoExisteCarga {
 		if(cargaActual!=null) {			
@@ -31,19 +28,6 @@ public class Montacarga {
 		}else {
 			throw new NoExisteCarga();
 		}
-	}
-
-
-	public Integer getCargaId() {
-		return cargaId;
-	}
-
-	public void setCargaId(Integer cargaId) {
-		this.cargaId = cargaId;
-	}
-
-	public ArrayList<Carga> getCargasCompletadas() {
-		return cargasCompletadas;
 	}
 
 
