@@ -55,6 +55,18 @@ public class Montacarga {
 	public Integer getCantidadDeCargasCompletadas() {
 		return this.cargasCompletadas.size();
 	}
+
+	public Double obtenerPromedioDeCargas() {
+		Double promedio=0.0;
+		Double pesoTotal=0.0;
+		for(Carga carga : this.cargasCompletadas) {
+			pesoTotal=pesoTotal+carga.getPeso();
+		}
+		
+		promedio=pesoTotal/cargaId;
+		
+		return promedio;
+	}
 	
 	
 
