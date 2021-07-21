@@ -31,8 +31,8 @@ public class Montacarga {
 	}
 
 
-	public void descargarCarga(Carga cargaActual) {
-		this.cargasCompletadas.add(cargaActual);
+	public void descargarCarga() {
+		this.cargasCompletadas.add(this.cargaActual);
 		this.cargaActual=null;
 	}
 
