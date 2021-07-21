@@ -54,7 +54,7 @@ public class TestCases {
 		Double pesoMaximo=1500.0;
 		Montacarga montacarga=new Montacarga(pesoMaximo);
 		
-		assertNotNull(montacarga.getCargaActual());
+		assertNull(montacarga.getCargaActual());
 	}
 	
 	@Test(expected = NoExisteCarga.class)
