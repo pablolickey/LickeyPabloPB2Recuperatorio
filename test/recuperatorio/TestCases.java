@@ -67,8 +67,8 @@ public class TestCases {
 		
 		montacarga.descargarCarga();
 		
-		assertNull(montacarga.getCargaActual());
 		assertEquals((Integer)1,montacarga.getCantidadDeCargasCompletadas());
+		assertNull(montacarga.getCargaActual());
 	}
 	
 	@Test
